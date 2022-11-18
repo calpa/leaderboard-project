@@ -1,19 +1,11 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux'
 import './App.css';
+import Leaderboard from './containers/leaderboard';
 
 function App() {
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch({
-      type: `chat/startConnecting`
-    })
-  }, [dispatch])
-
   return (
     <div className="App">
-      Leaderboard
+      <Leaderboard />
     </div>
   );
 }

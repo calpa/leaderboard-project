@@ -1,21 +1,21 @@
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import ChatMessage from "./chatMessage";
+import Player from "./player";
 
-export interface ChatState {
+export interface leaderboardState {
     players: [],
     isEstablishingConnection: boolean;
     isConnected: boolean;
 }
 
-const initialState: ChatState = {
+const initialState: leaderboardState = {
     players: [],
     isEstablishingConnection: false,
     isConnected: false
 };
 
-const chatSlice = createSlice({
-    name: 'chat',
+const leaderboardSlice = createSlice({
+    name: 'leaderboard',
     initialState,
     reducers: {
         startConnecting: (state => {
@@ -26,23 +26,18 @@ const chatSlice = createSlice({
             state.isEstablishingConnection = true;
         }),
         requestAllPlayersSuccess: ((state, action: PayloadAction<{
-            players: []
+            players: Player[]
         }>) => {
             state.players = action.payload.players;
         }),
-        receiveMessage: ((state, action: PayloadAction<{
-            message: ChatMessage
+        receivePlayer: ((state, action: PayloadAction<{
+            message: Player
         }>) => {
             state.messages.push(action.payload.message);
         }),
-        submitMessage: ((state, action: PayloadAction<{
-            content: string
-        }>) => {
-            return;
-        })
     },
 });
 
-export const chatActions = chatSlice.actions;
+export const leaderboardActions = leaderboardSlice.actions;
 
-export default chatSlice.reducer;
+export default leaderboardSlice.reducer;

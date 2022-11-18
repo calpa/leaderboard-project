@@ -6,7 +6,7 @@ const headings : Array<string> = ['Name', 'Ranking', 'Scores', 'Avatar']
 
 const Leaderboard = (props = {}) => {
     const {
-        players = []
+        players = [],
     } = props
 
     return (

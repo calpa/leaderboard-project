@@ -1,17 +1,18 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import counterReducer from '../features/counter/counterSlice';
-import chatReducer from '../features/chat/chatSlice';
+import leaderboardReducer from '../features/leaderboard/leaderboardSlice';
+
 import loggerMiddleware from './loggerMiddleware';
 import crashMiddleware from './crashMiddleware';
-import chatMiddleware from '../features/chat/chatMiddleware';
+import leaderboardMiddleware from '../features/leaderboard/leaderboardMiddleware';
 
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
-    chat: chatReducer,
+    leaderboard: leaderboardReducer,
   },
   middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware().concat([crashMiddleware, loggerMiddleware, chatMiddleware])
+    return getDefaultMiddleware().concat([crashMiddleware, loggerMiddleware, leaderboardMiddleware]);
   },
 });
 
