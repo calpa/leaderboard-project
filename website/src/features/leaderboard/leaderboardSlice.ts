@@ -30,11 +30,14 @@ const leaderboardSlice = createSlice({
         }>) => {
             state.players = action.payload.players;
         }),
-        receivePlayer: ((state, action: PayloadAction<{
-            message: Player
+
+        updatePlayer: ((state, action: PayloadAction<{
+            player: Player
         }>) => {
-            state.messages.push(action.payload.message);
-        }),
+            const { player } = action.payload
+            // console.log(player)
+            state.players.find(p => p.id === player.id).scores = player.scores
+        })
     },
 });
 

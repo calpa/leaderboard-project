@@ -17,8 +17,11 @@ io.on("connection", (socket) => {
     })
 
     setInterval(() => {
-        socket.emit('update', [])
-    }, 1000)
+        socket.emit('update_player', {
+            id: 1,
+            scores: (100 + Math.random() * 100).toFixed(2)
+        })
+    }, 5000)
 });
 
 httpServer.listen(8080)

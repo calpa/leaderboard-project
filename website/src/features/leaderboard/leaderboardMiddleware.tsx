@@ -22,6 +22,11 @@ const leaderboardMiddleware: Middleware = store => {
       socket.on(LeaderboardEvent.RequestAllPlayersSuccess, (players: Player[]) =>{
         store.dispatch(leaderboardActions.requestAllPlayersSuccess({players}));
       })
+
+      socket.on(LeaderboardEvent.UpdatePlayer, (player:Player) => {
+        // console.log(player)
+        store.dispatch(leaderboardActions.updatePlayer({player}))
+      })
     }
 
     next(action);

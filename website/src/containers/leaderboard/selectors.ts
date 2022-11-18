@@ -3,5 +3,6 @@ export const selectLeaderboard = state => {
 }
 
 export const selectPlayers = state => {
-    return state.leaderboard.players
+    const players = state.leaderboard.players.slice()
+    return players.sort((a, b) => b.scores - a.scores)
 }
