@@ -3,13 +3,13 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import ChatMessage from "./chatMessage";
 
 export interface ChatState {
-    messages: ChatMessage[];
+    players: [],
     isEstablishingConnection: boolean;
     isConnected: boolean;
 }
 
 const initialState: ChatState = {
-    messages: [],
+    players: [],
     isEstablishingConnection: false,
     isConnected: false
 };
@@ -25,10 +25,10 @@ const chatSlice = createSlice({
             state.isConnected = true;
             state.isEstablishingConnection = true;
         }),
-        receiveAllMessages: ((state, action: PayloadAction<{
-            messages: ChatMessage[]
+        requestAllPlayersSuccess: ((state, action: PayloadAction<{
+            players: []
         }>) => {
-            state.messages = action.payload.messages;
+            state.players = action.payload.players;
         }),
         receiveMessage: ((state, action: PayloadAction<{
             message: ChatMessage
