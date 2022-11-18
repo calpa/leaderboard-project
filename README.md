@@ -1,6 +1,6 @@
 # Leaderboard
 
-![](https://i.imgur.com/K2dy0Jq.png)
+![](https://i.imgur.com/GoFxoWk.png)
 
 1. Install the packages using `yarn` in `root`, `website` and `server` folder.
 2. Run `yarn start` in both `website` and `server` folder.
