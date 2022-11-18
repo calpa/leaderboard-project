@@ -3,6 +3,12 @@ export const selectLeaderboard = (state) => {
 };
 
 export const selectPlayers = (state) => {
-  const players = state.leaderboard.players.slice();
-  return players.sort((a, b) => b.scores - a.scores);
+  let players = state.leaderboard.players.slice();
+  players = players.sort((a, b) => b.scores - a.scores);
+  players = players.map((player, index) => ({
+    ...player,
+    ranking: index + 1
+  }))
+
+  return players
 };

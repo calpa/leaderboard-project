@@ -30,7 +30,9 @@ function Leaderboard() {
   return (
     <div>
       <h1>Leaderboard</h1>
-      <div>
+      <div style={{
+        margin: 10
+      }}>
         Items Per Page:
         <input
           onChange={(event) => setPageSize(event.currentTarget.value)}

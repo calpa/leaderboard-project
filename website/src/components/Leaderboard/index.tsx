@@ -2,7 +2,7 @@ import React from "react";
 
 import "./index.css";
 
-const headings: Array<string> = ["Avatar", "Name", "Ranking", "Scores"];
+const headings: Array<string> = ["Ranking", "Avatar", "Name", "Scores"];
 
 const Leaderboard = (props = {}) => {
   const { players = [] } = props;
@@ -21,6 +21,7 @@ const Leaderboard = (props = {}) => {
       <tbody>
         {players.map((player) => (
           <tr key={player.id}>
+            <td>{player.ranking}</td>
             <td>
               <img
                 src={player.avatar}
@@ -30,7 +31,6 @@ const Leaderboard = (props = {}) => {
               />
             </td>
             <td>{player.name}</td>
-            <td>{player.ranking}</td>
             <td>{player.scores}</td>
           </tr>
         ))}
